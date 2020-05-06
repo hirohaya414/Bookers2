@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
   <header class="navbar navbar-fixed-top navbar-inverse">
     <div class="container">
       <nav class="nav navbar-nav navbar-left">
@@ -33,6 +34,12 @@
       </nav>
     </div>
   </header>
+
+  <% if flash[:notice] %>
+    <div class="flash">
+      <%= flash[:notice] %>
+    </div>
+  <% end %>
 
   <div class="body">
     <div class="container">

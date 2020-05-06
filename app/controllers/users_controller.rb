@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-	before_action :authenticate_user!
+	# before_action :authenticate_user!
 
   def index
   	@users = User.all
@@ -7,7 +7,7 @@ class UsersController < ApplicationController
 
   def show
   	@user = User.find(params[:id])
-  	@user = User.new
+    @book = Book.new
   end
 
   def edit
@@ -16,9 +16,18 @@ class UsersController < ApplicationController
 
   def update
   	@user = User.find(params[:id])
-  	@user.update(user_params)
+  	if @user.update(user_params)
   	flash[:notice] = "You have updated user successfully."
   	redirect_to user_path(@user)
+    end
+  end
+
+  def destroy
+    book = Book.find(params[:id])
+  	if book.destroy
+      flash[:notice] = "Signed out successfully."
+  	  redirect_to root_path
+    end
   end
   private
 
