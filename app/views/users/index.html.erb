@@ -1,2 +1,65 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="body">
+    <div class="container">
+      <p id="notice"></p>
+        <div class="row">
+          <div class="col-xs-3">
+
+            <h2>User info</h2>
+            <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image">
+            <table class="table">
+              <tbody>
+                  <tr>
+                    <th><%= attachment_image_tag @user_image, :image %></th>
+                  </tr>
+                  <tr>
+                    <th>name</th>
+                    <th><%= current_user.name %></th>
+                  </tr>
+                  <tr>
+                    <th>introduction</th>
+                    <th><%= current_user.introduction %></th>
+                  </tr>
+              </tbody>
+            </table>
+            <div class="row">
+              <%= link_to "col-xs-12 btn btn-default glyphicon glyphicon-wrench", user_path(@users) %>
+            </div>
+
+            <h2>New book</h2>
+
+              <div class="field row">
+              <%= form_for(@book) do |f| %>
+
+                <h4>Title</h4>
+                <%= f.text_field :title %>
+
+              </div>
+              <div class="field row">
+                <h4>Opinion</h4>
+                <%= f.text_area :body %>
+
+              </div>
+              <div class="actions row">
+                <%= f.submit 'Create Book' %>
+              <% end %>
+              </div>
+
+          </div>
+            <div class="col-xs-9">
+            <h2>Users</h2>
+              <table class="table table-hover table-inverse">
+                <tbody>
+                  <tr>
+                    <td></td>
+                    <td><%= @book.title %></td>
+                    <td><%= @book.body %></td>
+                    <td><a class="btn btn-sm btn-success" href="" role="button">Edit</a></td>
+                    <td><%= link_to "Destroy", method: :delete, "data-confirm" => "本当に消しますか?" %></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+        </div>
+    </div>
+  </div>

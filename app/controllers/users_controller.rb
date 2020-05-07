@@ -3,10 +3,21 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
+    @book = Book.new
+  end
+
+  def create
+    @book = Book.new(book_params)
+    @book.user_id = current_user.id
+    if @book.save
+      flash[:notice] = "You have created successfully."
+      redirect_to books_path
+    end
   end
 
   def show
   	@user = User.find(params[:id])
+    @book = @user.book_ids
     @book = Book.new
   end
 
