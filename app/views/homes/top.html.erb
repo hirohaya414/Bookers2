@@ -18,23 +18,6 @@
 </head>
 
 <body>
-
-  <header class="navbar navbar-fixed-top navbar-inverse">
-    <div class="container">
-      <nav class="nav navbar-nav navbar-left">
-        <span>Bookers</span>
-      </nav>
-      <nav>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a class="glyphicon glyphicon-home home" href="/"> Home</a></li>
-          <li><a class="glyphicon glyphicon-link about" href="/home/about"> About</a></li>
-          <li><a class="glyphicon glyphicon-edit sign_up" href="/users/sign_up"> sign up</a></li>
-          <li><a class="glyphicon glyphicon-log-in sign_in" href="/users/sign_in"> login</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
   <% if flash[:notice] %>
     <div class="flash">
       <%= flash[:notice] %>
@@ -51,12 +34,21 @@
             <p>you can share and exchange  your opinions , inpressions , and emotions</p>
             <p> about various books!</p>
               <div class="btn-wrapper">
-                <div class="row">
-                  <p><a class="btn btn-info col-xs-10 col-xs-offset-1 sign_in" href="/users/sign_in">Log in</a></p>
-                </div>
-                <div class="row">
-                <p><a class="btn btn-success col-xs-10 col-xs-offset-1 sign_up" href="/users/sign_up">Sign Up</a></p>
-                </div>
+                <% if user_signed_in? %>
+                  <div class="row">
+                    <%= link_to "Log in", user_path(current_user), class: "btn btn-info col-xs-10 col-xs-offset-1" %>
+                  </div>
+                  <div class="row">
+                    <%= link_to "Sign up", user_path(current_user), class: "btn btn-success col-xs-10 col-xs-offset-1" %>
+                  </div>
+                <% else %>
+                  <div class="row">
+                    <%= link_to "Log in", new_user_session_path, class: "btn btn-info col-xs-10 col-xs-offset-1" %>
+                  </div>
+                  <div class="row">
+                    <%= link_to "Sign up", new_user_registration_path, class: "btn btn-success col-xs-10 col-xs-offset-1" %>
+                  </div>
+                <% end %>
               </div>
           </div>
         </div>
