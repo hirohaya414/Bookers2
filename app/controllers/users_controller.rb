@@ -6,12 +6,10 @@ class UsersController < ApplicationController
     @book = Book.new
   end
 
-
-
   def show
   	@user = User.find(params[:id])
-    @books = @user.books.all
     @book = Book.new
+    @books = Book.all
   end
 
   def edit

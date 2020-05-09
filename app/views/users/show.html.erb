@@ -4,52 +4,7 @@
         <div class="row">
           <div class="col-xs-3">
 
-          　<% if flash[:notice] %>
-              <div class="flash">
-                <%= flash[:notice] %>
-              </div>
-            <% end %>
-
-            <h2>User info</h2>
-            <img class="attachment user profile_image fallback" src="/assets/no_image-ede28af4bad96368ef41be1b4be1cffce0d9402540f75d17895e32cb0d2af5e6.jpg" alt="No image">
-            <table class="table">
-              <tbody>
-                  <tr>
-                    <th></th>
-                  </tr>
-                  <tr>
-                    <th>name</th>
-                    <th><%= @user.name %></th>
-                  </tr>
-                  <tr>
-                    <th>introduction</th>
-                    <th><%= @user.introduction %></th>
-                  </tr>
-              </tbody>
-            </table>
-            <div class="row">
-              <!-- <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> -->
-              <%= link_to "", edit_user_path, class: "col-xs-12 btn btn-default glyphicon glyphicon-wrench" %>
-            </div>
-
-            <h2>New book</h2>
-
-              <div class="field row">
-              <%= form_for(@book) do |f| %>
-
-                <h4>Title</h4>
-                <%= f.text_field :title %>
-
-              </div>
-              <div class="field row">
-                <h4>Opinion</h4>
-                <%= f.text_area :body %>
-
-              </div>
-              <div class="actions row">
-                <%= f.submit 'Create Book' %>
-              <% end %>
-              </div>
+          　<%= render 'users/side', user: current_user, book: Book.new %>
 
           </div>
             <div class="col-xs-9">
