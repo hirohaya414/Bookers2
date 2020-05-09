@@ -19,16 +19,24 @@
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
               <li class="">
-                <%= link_to "Home", user_path(current_user.id)%>
+                <%= link_to user_path(current_user) do %>
+                  <span class="glyphicon glyphicon-home home"></span> Home
+                <% end %>
               </li>
               <li class="">
-                <%= link_to 'Users', users_path %>
+                <%= link_to ("/users") do %>
+                  <span class="glyphicon glyphicon-user users"></span> Users
+                <% end %>
               </li>
               <li class="">
-                <%= link_to 'Books', books_path %>
+                <%= link_to ("/books") do %>
+                  <span class="glyphicon glyphicon-book books"></span> Books
+                <% end %>
               </li>
               <li class="">
-                <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+                <%= link_to destroy_user_session_path, method: :delete  do %>
+                  <span class="glyphicon glyphicon-log-out logout"></span> logout
+                <% end %>
               </li>
             <% else %>
               <li><a class="glyphicon glyphicon-home home" href="/"> Home</a></li>
