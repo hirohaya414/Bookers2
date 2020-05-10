@@ -19,15 +19,15 @@
 
           <%= form_for @book do |f| %>
               <h4>Title</h4><br>
-              <%= f.text_field :title %>
+              <%= f.text_field :title, class: "col-xs-12" %>
 
           <div class="field row">
             <h4>Opinion</h4>
-            <textarea class="col-xs-12"><%= f.text_area :body %></textarea>
+            <%= f.text_area :body, class: "col-xs-12" %>
           </div>
 
           <div class="actions row">
-              <%= f.submit 'Update Book' %>
+              <%= f.submit 'Update Book', class: "col-xs-12" %>
 
           <% end %>
           </div>
