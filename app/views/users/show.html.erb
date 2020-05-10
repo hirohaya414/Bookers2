@@ -21,9 +21,9 @@
                 <tbody>
                   <% @books.each do |book| %>
                   <tr>
-                    <td><%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-rounded pull-left" %></td>
-                    <td><% book.title %></td>
-                    <td><% book.body %></td>
+                    <td><%= attachment_image_tag book.user, :profile_image, size: "100x100", class: "img-rounded pull-left", fallback: "no_image.jpg" %></td>
+                    <td><%= book.title %></td>
+                    <td><%= book.body %></td>
                     <td></td>
                     <td></td>
                     <td></td>

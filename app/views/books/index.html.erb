@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-xs-3">
 
-          <%= render 'users/side', user: current_user, book: Book.new %>
+          <%= render 'users/side', user: current_user, book: @book %>
 
           </div>
             <div class="col-xs-9">
@@ -22,7 +22,7 @@
                   <tr>
                     <td>
                       <%= link_to user_path(book.user.id) do %>
-                        <%= attachment_image_tag @user, :profile_image, size: "100x100", class: "img-rounded pull-left" %>
+                        <%= attachment_image_tag book.user, :profile_image, size: "100x100", class: "img-rounded pull-left" %>
                       <% end %>
                     </td>
                     <td>
