@@ -5,11 +5,11 @@ class BooksController < ApplicationController
   end
 
   def create
-    @book = Book.new(book_params)
-    @book.user_id = current_user.id
-    if @book.save
+    book = Book.new(book_params)
+    book.user_id = current_user.id
+    if book.save
       flash[:notice] = "You have created successfully "
-      redirect_to books_path
+      redirect_to book_path(book)
     end
   end
 
@@ -31,6 +31,8 @@ class BooksController < ApplicationController
     if @book.update(book_params)
       flash[:notice] = "You have updated successfully."
       redirect_to book_path(@book)
+    else
+      render :edit
     end
   end
 
@@ -42,6 +44,6 @@ class BooksController < ApplicationController
 
   private
   def book_params
-  params.require(:book).permit(:title, :body)
+  params.require(:book).permit(:title, :body, :user_id)
   end
 end

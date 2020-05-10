@@ -17,13 +17,13 @@
           <% end %>
 
 
-          <%= form_for(@book, url:"/books/#{@book.id}") do |f| %>
+          <%= form_for @book do |f| %>
               <h4>Title</h4><br>
               <%= f.text_field :title %>
 
           <div class="field row">
             <h4>Opinion</h4>
-            <textarea class="col-xs-12 book_body"><%= f.text_area :body %></textarea>
+            <textarea class="col-xs-12"><%= f.text_area :body %></textarea>
           </div>
 
           <div class="actions row">
