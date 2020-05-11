@@ -1,10 +1,9 @@
 <header></header>
 
 <div class="body">
-    <div class="container">
-      <p id="notice"></p>
-        <div class="row">
-          <div class="col-xs-3">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-3">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -32,18 +31,7 @@
 
 <%= render "devise/shared/links" %>
 
-          </div>
-        </div>
-    </div>
-  </div>
-
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-3 col-xs-offset-9">
-        <p>CopyRight Infratop.inc</p>
       </div>
     </div>
   </div>
-</footer>
-
+</div>

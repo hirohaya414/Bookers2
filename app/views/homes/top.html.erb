@@ -1,29 +1,20 @@
 <html>
 <head>
   <style type="text/css">.turbolinks-progress-bar {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  height: 3px;
-  background: #0076ff;
-  z-index: 9999;
-  transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
-  transform: translate3d(0, 0, 0);
-}</style>
-
-    <link rel="stylesheet" media="all" href="/assets/application-945628f9f95377705c9108ec9a9704e6f6ffa0767c02e34400d75b5be64fc1b7.css" data-turbolinks-track="reload">
-    <script src="/assets/application-11e027fe501efa6924bd87aa8f6ef7436fd1539022b412029c4a223dec9664f8.js" data-turbolinks-track="reload"></script>
-  <title>Bookers</title><meta name="csrf-param" content="authenticity_token"><meta name="csrf-token" content="Ja4MZ36jVmFDJfuqAcfMyt7gYx1qVFhPPHUfAN8RuDv8OyL60j6CDrw6QP35B/YPiNAtowMe+Z07bxzFuSUbiQ==">
+    position: fixed;
+    display: block;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #0076ff;
+    z-index: 9999;
+    transition: width 300ms ease-out, opacity 150ms 150ms ease-in;
+    transform: translate3d(0, 0, 0);
+  }</style>
+  <title>Bookers</title>
 </head>
 
 <body>
-  <% if flash[:notice] %>
-    <div class="flash">
-      <%= flash[:notice] %>
-    </div>
-  <% end %>
-
   <div class="body">
     <div class="container">
       <p id="notice"></p>
@@ -54,16 +45,5 @@
         </div>
     </div>
   </div>
-
-  <footer>
-    <div class="container">
-  	  <div class="row">
-    	  <div class="col-xs-3 col-xs-offset-9">
-    		  <p>CopyRight Infratop.inc</p>
-    	  </div>
-     </div>
-    </div>
-  </footer>
-
 </body>
 </html>

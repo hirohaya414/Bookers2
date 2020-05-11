@@ -3,10 +3,12 @@ class UsersController < ApplicationController
 
   def index
   	@users = User.all
+    @book = Book.new
   end
 
   def show
   	@user = User.find(params[:id])
+    @book = Book.new
     @books = @user.books
   end
 
@@ -24,13 +26,6 @@ class UsersController < ApplicationController
     end
   end
 
-  def destroy
-    book = Book.find(params[:id])
-  	if book.destroy
-      flash[:notice] = "Signed out successfully."
-  	  redirect_to root_path
-    end
-  end
   private
 
   def user_params
