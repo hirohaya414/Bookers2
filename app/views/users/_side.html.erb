@@ -8,15 +8,30 @@
 <table class="table">
   <tbody>
       <tr>
-        <th><%= attachment_image_tag user, :profile_image, size: "100x100", class: "img-rounded pull-left", fallback: "no_image.jpg" %></th>
+        <td><%= attachment_image_tag user, :profile_image, size: "100x100", class: "img-rounded pull-left", fallback: "no_image.jpg" %></td>
       </tr>
       <tr>
-        <th>name</th>
-        <th><%= user.name %></th>
+        <td>name</td>
+        <td><%= user.name %></td>
       </tr>
       <tr>
-        <th>introduction</th>
-        <th><%= user.introduction %></th>
+        <td>introduction</td>
+        <td><%= user.introduction %></td>
+      </tr>
+      <tr>
+        <td>follows</td>
+        <td><%= link_to follows_user_path(user) do %><%= user.follower.count %><% end %></td>
+      </tr>
+      <tr>
+        <td>followers</td>
+        <td><%= link_to followers_user_path(user) do %><%= user.followed.count %><% end %></td>
+      </tr>
+      <tr>
+        <% if current_user.following?(user) %>
+          <td><%= link_to 'フォロー外す', unfollow_path(user.id), method: :post, class: "btn btn-lg btn-warning" %></td><td></td>
+        <% else %>
+          <td><%= link_to 'フォローする', follow_path(user.id), method: :post, class: "btn btn-lg btn-primary" %></td><td></td>
+        <% end %>
       </tr>
   </tbody>
 </table>
