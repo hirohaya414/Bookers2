@@ -24,6 +24,11 @@ class User < ApplicationRecord
     following_user.include?(user)
   end
 
+  def self.search(search)
+    return all unless search
+    where(['name LIKE ?', "%#{search}%"])
+  end
+
   attachment :profile_image
   validates :name, presence: true
   validates :name, length: { in: 2..20 }

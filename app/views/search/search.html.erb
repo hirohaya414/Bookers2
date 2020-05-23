@@ -1,0 +1,14 @@
+<div class="body">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>Search result <%= @content %></h2>
+        <% if @model == 'user' %>
+		  <%= render 'users/index', users: @records %>
+		<% else @model == 'book' %>
+		  <%= render 'books/index', books: @records %>
+		<% end %>
+      </div>
+    </div>
+  </div>
+</div>

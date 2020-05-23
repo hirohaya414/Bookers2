@@ -18,6 +18,14 @@
         <nav>
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
+              <li class="seachbar">
+                <%= form_tag(search_path, method: :get) do %>
+                  <%= text_field_tag 'search[content]' %>
+                  <%= select_tag 'search[model]', options_for_select({ "User" => "user", "Book" => "book" }) %>
+                  <%= select_tag 'search[method]', options_for_select({ "完全一致" => "perfect", "前方一致" => "forward", "後方一致" => "backward", "部分一致" => "partial" }) %>
+                  <%= submit_tag '検索' %>
+                <% end %>
+              </li>
               <li class="">
                 <%= link_to user_path(current_user) do %>
                   <span class="glyphicon glyphicon-home home"></span> Home
