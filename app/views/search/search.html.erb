@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <h2>Search result <%= @content %></h2>
+        <h2>Search result for '<%= @content %>'</h2>
         <% if @model == 'user' %>
 		  <%= render 'users/index', users: @records %>
 		<% else @model == 'book' %>
