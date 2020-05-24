@@ -9,7 +9,7 @@
   </thead>
   <tbody>
     <% books.each do |book| %>
-    <tr>
+    <tr class="book_<%= book.id %>">
       <%= render 'books/book', book: book %>
     </tr>
     <% end %>
